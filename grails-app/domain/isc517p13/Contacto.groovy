@@ -19,7 +19,7 @@ class Contacto {
     static belongsTo = [depart: Departamento]
 
     static constraints = {
-        
+
         nombre (blank: false)
         apellido (blank: false)
         email (email:true, unique: true)
