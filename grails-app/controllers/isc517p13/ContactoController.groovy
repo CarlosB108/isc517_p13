@@ -12,6 +12,18 @@ class ContactoController {
         params.max = Math.min(max ?: 10, 100)
         respond Contacto.list(params), model:[contactoCount: Contacto.count()]
     }
+//Para el login
+    def beforeInterceptor = [action:this.&checkUser,except:
+            ['index','list','show']]
+    def checkUser() {
+        if(!session.user) {
+// i.e. user not logged in
+            redirect(controller:'usuario',action:'login')
+            return false
+        }
+    }
+
+
 
     def show(Contacto contacto) {
         respond contacto

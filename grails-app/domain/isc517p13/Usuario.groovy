@@ -8,6 +8,7 @@ class Usuario {
 
 
 
+
     static belongsTo = [departmento: Departamento]
 
     static constraints = {

@@ -8,6 +8,22 @@ class UsuarioController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+
+    def login = {
+    }
+
+
+    //Para el login
+    def doLogin = {
+        def user = Usuario.findWhere(nombre:params['nombre'],
+                contrasena:params['contrasena'])
+        session.Usuario = usuario
+        if (usuario)
+            redirect(controller:'plant',action:'list')
+        else
+            redirect(controller:'user',action:'login')
+    }
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Usuario.list(params), model:[usuarioCount: Usuario.count()]
