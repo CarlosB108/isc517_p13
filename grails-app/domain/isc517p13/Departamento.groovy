@@ -8,7 +8,7 @@ class Departamento {
     Date UltimaModificacion
 
     static hasMany = [contactos: Contacto]
-    static mappedBy = [contactos: 'dept'];
+    static mappedBy = [contactos: 'depart'];
 
     static constraints = {
 
