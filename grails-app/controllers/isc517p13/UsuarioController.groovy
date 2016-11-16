@@ -15,13 +15,13 @@ class UsuarioController {
 
     //Para el login
     def doLogin = {
-        def user = Usuario.findWhere(nombre:params['nombre'],
+        def usuario = Usuario.findWhere(nombre:params['nombre'],
                 contrasena:params['contrasena'])
         session.Usuario = usuario
         if (usuario)
-            redirect(controller:'plant',action:'list')
+            redirect(url:"/index")
         else
-            redirect(controller:'user',action:'login')
+            redirect(controller:'usuario',action:'login')
     }
 
     def index(Integer max) {

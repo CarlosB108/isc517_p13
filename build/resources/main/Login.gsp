@@ -6,6 +6,7 @@
 </head>
 <body>
 <div class="body">
+<g:form action="doLogin" method="post" controller="Usuario">
         <div class="dialog">
             <p>Login</p>
             <table class="userForm">
@@ -14,7 +15,7 @@
                         <label for='email'>Nombre:</label>
                     </td>
                     <td valign='top' style='text-align:left;' width='80%'>
-                        <input id="email" type='text' name='email' value='' />
+                        <input id="email" type='text' name='nombre' value='' />
                     </td>
                 </tr>
                 <tr class='prop'>
@@ -22,7 +23,7 @@
                         <label for='password'>Contraseña:</label>
                     </td>
                     <td valign='top' style='text-align:left;' width='80%'>
-                        <input id="password" type='password' name='password'
+                        <input id="password" type='password' name='contrasena'
                                value='' />
                     </td>
                 </tr>
@@ -34,6 +35,7 @@
                 <input type="submit" value="Login"></input>
             </span>
         </div>
+</g:form>
 </div>
 </body>
 </html>

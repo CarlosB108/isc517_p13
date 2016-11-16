@@ -4,7 +4,10 @@ class BootStrap {
 
     def init = { servletContext ->
         //para el login
-        new Usuario(nombre:"Carlos",contrasena: "123").save()
+        def usuario = Usuario.findWhere(nombre:'Carlos',
+                contrasena:'123')
+        if (!usuario)
+            new Usuario(nombre:"Carlos",contrasena: "123").save()
     }
     def destroy = {
     }
