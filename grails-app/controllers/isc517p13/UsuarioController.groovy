@@ -19,7 +19,7 @@ class UsuarioController {
                 contrasena:params['contrasena'])
         session.Usuario = usuario
         if (usuario)
-            redirect(url:"/index")
+            redirect(controller:'departamento',action:'index')
         else
             redirect(controller:'usuario',action:'login')
     }
