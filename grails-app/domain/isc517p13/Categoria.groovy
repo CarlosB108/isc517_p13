@@ -5,8 +5,8 @@ class Categoria {
 
     String titulo
 
-    Date FechaCreada
-    Date UltimaModificacion
+    Date dateCreated
+    Date lastUpdated
 
 
     static constraints = {
