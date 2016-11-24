@@ -9,6 +9,8 @@
 //= require bootstrap
 //= require_tree .
 //= require_self
+//= require bootstrap
+//= require exa-datatables-bootstrap3
 
 if (typeof jQuery !== 'undefined') {
     (function($) {

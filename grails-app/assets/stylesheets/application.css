@@ -9,6 +9,7 @@
 *
 *= require bootstrap
 *= require grails
+*= require exa-datatables-bootstrap3
 *= require main
 *= require mobile
 *= require_self

@@ -8,10 +8,8 @@ class UsuarioController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-
     def login = {
     }
-
 
     //Para el login
     def doLogin = {
@@ -21,7 +19,7 @@ class UsuarioController {
         if (usuario)
             redirect(controller:'departamento',action:'index')
         else
-            redirect(controller:'usuario',action:'login')
+            redirect(controller:'index',action:'index')
     }
 
     def index(Integer max) {

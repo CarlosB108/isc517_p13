@@ -1,7 +1,9 @@
 package isc517p13
 
-import static org.springframework.http.HttpStatus.*
+import grails.converters.JSON
 import grails.transaction.Transactional
+
+import static org.springframework.http.HttpStatus.*
 
 @Transactional(readOnly = true)
 class DepartamentoController {
@@ -52,11 +54,14 @@ class DepartamentoController {
 
     @Transactional
     def update(Departamento departamento) {
+
         if (departamento == null) {
             transactionStatus.setRollbackOnly()
             notFound()
             return
         }
+
+
 
         if (departamento.hasErrors()) {
             transactionStatus.setRollbackOnly()

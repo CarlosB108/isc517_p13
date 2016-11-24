@@ -21,7 +21,7 @@ class Contacto {
         nombre (blank: false)
         apellido (blank: false)
         email (email:true, unique: true)
-        telefono (minSize: 10, maxSize: 14)
+        telefono (minSize: 10, maxSize: 14, unique: true)
         direccion (nullable: true)
         puesto_de_trabajo (nullable: true)
         celular (minSize: 10, maxSize: 14)

@@ -1,7 +1,9 @@
 package isc517p13
 
-import static org.springframework.http.HttpStatus.*
+import grails.converters.JSON
 import grails.transaction.Transactional
+
+import static org.springframework.http.HttpStatus.*
 
 @Transactional(readOnly = true)
 class ContactoController {
@@ -23,7 +25,11 @@ class ContactoController {
         }
     }
 
-
+    def search( String q ){
+        def lista = Contacto.findByEmailOrNombre( q, q )
+        if ( lista == null ) lista = []
+        render lista as JSON
+    }
 
     def show(Contacto contacto) {
         respond contacto

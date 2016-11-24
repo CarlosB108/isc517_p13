@@ -6,35 +6,30 @@
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
     </head>
     <body>
-        <a href="#edit-departamento" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-        <div class="nav" role="navigation">
-            <ul>
-                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-                <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-            </ul>
-        </div>
-        <div id="edit-departamento" class="content scaffold-edit" role="main">
-            <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
             </g:if>
-            <g:hasErrors bean="${this.departamento}">
-            <ul class="errors" role="alert">
-                <g:eachError bean="${this.departamento}" var="error">
-                <li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
-                </g:eachError>
-            </ul>
-            </g:hasErrors>
-            <g:form resource="${this.departamento}" method="PUT">
-                <g:hiddenField name="version" value="${this.departamento?.version}" />
-                <fieldset class="form">
-                    <f:all bean="departamento"/>
-                </fieldset>
-                <fieldset class="buttons">
-                    <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-                </fieldset>
-            </g:form>
-        </div>
+            <form action="/departamento/update/${departamento.id}" method="post"><input type="hidden" name="_method" value="PUT" id="_method">
+                <input type="hidden" name="version" value="0" id="version">
+                <div class="form-group">
+                    <label for="titulo">Titulo
+                        <span class="required-indicator">*</span>
+                    </label>
+                    <input class="form-control" type="text" name="titulo" value="${departamento.titulo}" required="" maxlength="30" id="titulo">
+                </div>
+                <div class="form-group">
+                    <label for="titulo">Contactos</label>
+                    <!--<select id="contacts_list" name="contactos" class="form-control" multiple>
+                    <g:each in="${this.departamento.contactos}" var="contacto">
+                        <option value="${contacto.id}">${contacto.nombre} - ${contacto.email}</option>
+                    </g:each>
+                    </select>-->
+                    <g:select name="contactos" id="contacts_list" class="form-control" multiple="multiple"
+                              optionKey="id"
+                              from="${this.departamento.contactos}"/>
+                </div>
+                <input class="save btn btn-primary" type="submit" value="Actualizar">
+
+            </form>
     </body>
 </html>
