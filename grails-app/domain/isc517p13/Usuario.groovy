@@ -2,20 +2,23 @@ package isc517p13
 
 class Usuario {
 
-    String nombre
-    String contrasena
+    String username
+    String password
     boolean isAdmin
 
+    Date dateCreated
+    Date lastUpdated
+    int last_user
 
-
-
-    static belongsTo = [departmento: Departamento]
-
+    static belongsTo = [departamento: Departamento ]
+    static hasMany = [ authorities: UserRole ]
     static constraints = {
 
-        nombre (blank: false)
-        contrasena (blank: false)
-        departmento (nullable: true)
+        last_user( nullable: true )
+        username (blank: false)
+        password (blank: false)
+        departamento (nullable: true)
+        last_user ( display:false )
 
     }
 }

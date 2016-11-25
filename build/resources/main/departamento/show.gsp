@@ -49,7 +49,7 @@
                     <td>${contacto.nombre}</td>
                     <td>${contacto.apellido}</td>
                     <td>${contacto.telefono}</td>
-                    <td>${contacto.correo}</td>
+                    <td>${contacto.email}</td>
                     <td>${contacto.direccion}</td>
                 </tr>
                 </g:each>

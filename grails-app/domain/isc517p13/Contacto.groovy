@@ -12,12 +12,14 @@ class Contacto {
     String celular
     Date dateCreated
     Date lastUpdated
+    int last_user
 
+    static belongsTo = [categoria: Categoria]
     static hasMany = [deparmentos: Departamento]
-    static belongsTo = [depart: Departamento]
+
 
     static constraints = {
-
+        last_user( nullable: true )
         nombre (blank: false)
         apellido (blank: false)
         email (email:true, unique: true)
@@ -25,7 +27,6 @@ class Contacto {
         direccion (nullable: true)
         puesto_de_trabajo (nullable: true)
         celular (minSize: 10, maxSize: 14)
-
-
+        last_user display:false
     }
 }

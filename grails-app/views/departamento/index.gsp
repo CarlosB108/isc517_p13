@@ -14,11 +14,12 @@
                         <th>Nombre</th>
                     </tr>
                     </thead>
-                    <tbody>
                     <g:each in="${departamentoList}" var="department">
+                        <g:if test="${ Usuario.isAdmin || Usuario.departmento == department }">
                         <tr>
                             <th><a href="/departamento/show/${department.id}">${department.titulo}</a></th>
                         </tr>
+                        </g:if>
                     </g:each>
                     </tbody>
                  </table>

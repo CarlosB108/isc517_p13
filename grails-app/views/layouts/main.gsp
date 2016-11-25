@@ -102,7 +102,7 @@ desired effect
                         <li><a href="/departamento/create">Crear</a></li>
                     </ul>
                 </li>
-    <!-- SOLO ADMINS -->
+                <!-- SOLO ADMINS -->
                 <li class="treeview">
                     <a href="#"><i class="fa fa-circle-o"></i> <span>Contactos</span>
                         <span class="pull-right-container">
@@ -110,8 +110,30 @@ desired effect
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#">Listar</a></li>
-                        <li><a href="#">Crear</a></li>
+                        <li><a href="/contacto">Listar</a></li>
+                        <li><a href="/contacto/create">Crear</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-circle-o"></i> <span>Categor&iacute;as</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="/categoria">Listar</a></li>
+                        <li><a href="/categoria/create">Crear</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-circle-o"></i> <span>Usuario</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="/usuario">Listar</a></li>
+                        <li><a href="/usuario/create">Crear</a></li>
                     </ul>
                 </li>
             </ul>

@@ -1,11 +1,13 @@
 package isc517p13
 
 import grails.converters.JSON
+import grails.plugin.springsecurity.annotation.Secured
 import grails.transaction.Transactional
 
 import static org.springframework.http.HttpStatus.*
 
 @Transactional(readOnly = true)
+@Secured(["ROLE_ADMIN"])
 class ContactoController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
@@ -82,6 +84,7 @@ class ContactoController {
             return
         }
 
+        contacto.last_user = Session.Usuario.id
         contacto.save flush:true
 
         request.withFormat {

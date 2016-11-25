@@ -2,6 +2,7 @@ package isc517p13
 
 import grails.converters.JSON
 import grails.transaction.Transactional
+import grails.plugin.springsecurity.annotation.Secured
 
 import static org.springframework.http.HttpStatus.*
 
@@ -11,6 +12,7 @@ class DepartamentoController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
+        def Usuario = session.Usuario
         params.max = Math.min(max ?: 10, 100)
         respond Departamento.list(params), model:[departamentoCount: Departamento.count()]
     }
@@ -19,10 +21,12 @@ class DepartamentoController {
         respond departamento
     }
 
+    @Secured(["ROLE_ADMIN"])
     def create() {
         respond new Departamento(params)
     }
 
+    @Secured(["ROLE_ADMIN"])
     @Transactional
     def save(Departamento departamento) {
         if (departamento == null) {
@@ -37,6 +41,7 @@ class DepartamentoController {
             return
         }
 
+        departamento.last_user = session.Usuario.id
         departamento.save flush:true
 
         request.withFormat {
@@ -48,10 +53,12 @@ class DepartamentoController {
         }
     }
 
+    @Secured(["ROLE_ADMIN"])
     def edit(Departamento departamento) {
         respond departamento
     }
 
+    @Secured(["ROLE_ADMIN"])
     @Transactional
     def update(Departamento departamento) {
 
@@ -67,6 +74,16 @@ class DepartamentoController {
             transactionStatus.setRollbackOnly()
             respond departamento.errors, view:'edit'
             return
+        }
+
+        departmento.last_user = session.Usuario.id
+        departmento.contactos = [ ]
+
+        def contactos = params.contactos;
+        if( contactos == null ) contactos = [ ]
+
+        for ( Integer id : contactos ){
+            departmento.contactos.add( Contacto.findById( id ) );
         }
 
         departamento.save flush:true

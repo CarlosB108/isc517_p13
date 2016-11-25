@@ -1,14 +1,19 @@
 package isc517p13
 
-import static org.springframework.http.HttpStatus.*
+import grails.plugin.springsecurity.annotation.Secured
 import grails.transaction.Transactional
+
+import static org.springframework.http.HttpStatus.*
 
 @Transactional(readOnly = true)
 class UsuarioController {
-
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def login = {
+    }
+    def logout() {
+        session.Usuario = null
+        redirect uri: "/"
     }
 
     //Para el login
@@ -16,6 +21,7 @@ class UsuarioController {
         def usuario = Usuario.findWhere(nombre:params['nombre'],
                 contrasena:params['contrasena'])
         session.Usuario = usuario
+        reauthenticate
         if (usuario)
             redirect(controller:'departamento',action:'index')
         else
@@ -35,6 +41,7 @@ class UsuarioController {
         respond new Usuario(params)
     }
 
+    @Secured(["ROLE_ADMIN"])
     @Transactional
     def save(Usuario usuario) {
         if (usuario == null) {
@@ -49,6 +56,7 @@ class UsuarioController {
             return
         }
 
+        //usuario.last_user = session.Usuario.id
         usuario.save flush:true
 
         request.withFormat {
@@ -60,10 +68,12 @@ class UsuarioController {
         }
     }
 
+    @Secured(["ROLE_ADMIN"])
     def edit(Usuario usuario) {
         respond usuario
     }
 
+    @Secured(["ROLE_ADMIN"])
     @Transactional
     def update(Usuario usuario) {
         if (usuario == null) {
@@ -78,6 +88,7 @@ class UsuarioController {
             return
         }
 
+        usuario.last_user = session.Usuario.id
         usuario.save flush:true
 
         request.withFormat {
@@ -89,6 +100,7 @@ class UsuarioController {
         }
     }
 
+    @Secured(["ROLE_ADMIN"])
     @Transactional
     def delete(Usuario usuario) {
 

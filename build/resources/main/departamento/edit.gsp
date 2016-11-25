@@ -19,15 +19,11 @@
                 </div>
                 <div class="form-group">
                     <label for="titulo">Contactos</label>
-                    <!--<select id="contacts_list" name="contactos" class="form-control" multiple>
+                    <select id="contacts_list" name="contactos" class="form-control" multiple>
                     <g:each in="${this.departamento.contactos}" var="contacto">
-                        <option value="${contacto.id}">${contacto.nombre} - ${contacto.email}</option>
+                        <option value="${contacto.id}" selected>${contacto.nombre} - ${contacto.email}</option>
                     </g:each>
-                    </select>-->
-                    <g:select name="contactos"  multiple="multiple"
-                              optionKey="id"
-                              from="${this.departamento.contactos}"
-                              value="${Contacto.email}" />
+                    </select>
                 </div>
                 <input class="save btn btn-primary" type="submit" value="Actualizar">
 

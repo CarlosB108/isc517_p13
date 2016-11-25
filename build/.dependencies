@@ -2,6 +2,7 @@ dependencies:
 - file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-logging/1.3.3.RELEASE/16b395c84f28b947f1c336aa461fda1e662bb3b6/spring-boot-starter-logging-1.3.3.RELEASE.jar
 - file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-autoconfigure/1.3.3.RELEASE/e7a4a25f74dac6b335ffabc43e3e8a6e3066340e/spring-boot-autoconfigure-1.3.3.RELEASE.jar
 - file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/org.grails/grails-core/3.1.5/7cb74969bb31ade99bbd9f23be816e4c150aba2e/grails-core-3.1.5.jar
+- file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/org.grails.plugins/spring-security-core/3.1.1/62998dc11053792cedfb979ffc94921d346eaeb6/spring-security-core-3.1.1.jar
 - file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-actuator/1.3.3.RELEASE/ec15d8ba682e5e287a6d8cb1299ca69214a46530/spring-boot-starter-actuator-1.3.3.RELEASE.jar
 - file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-tomcat/1.3.3.RELEASE/541468d85cc2c94d2b538b0fa07c018847bb9b78/spring-boot-starter-tomcat-1.3.3.RELEASE.jar
 - file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/org.grails/grails-web-boot/3.1.5/e6a731e08fe54caa49ba507c4861798fbcd56238/grails-web-boot-3.1.5.jar
@@ -32,6 +33,9 @@ dependencies:
 - file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.2.5.RELEASE/a75e18322c7b362fe1daa26a245ae672ec0f3138/spring-context-4.2.5.RELEASE.jar
 - file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/org.grails/grails-bootstrap/3.1.5/868fefcfa0852a27c76f204235163f90f6719b48/grails-bootstrap-3.1.5.jar
 - file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/org.grails/grails-spring/3.1.5/2dfe7f30f63c2172f6a781c11579e3ff7bb421db/grails-spring-3.1.5.jar
+- file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/net.sf.ehcache/ehcache/2.10.1/a507a1302b631d0718fe29ae95d4e52e646ecc5a/ehcache-2.10.1.jar
+- file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/4.0.3.RELEASE/9f420c5742ad063970c5d33f60680a1cee777aa5/spring-security-core-4.0.3.RELEASE.jar
+- file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-web/4.0.3.RELEASE/5f0233d94ca53ac8710780b43791f633f970480a/spring-security-web-4.0.3.RELEASE.jar
 - file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter/1.3.3.RELEASE/e4a71ce6ae8e42a7535dd9f1a39f91d36c538f28/spring-boot-starter-1.3.3.RELEASE.jar
 - file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-actuator/1.3.3.RELEASE/7f1ae26c1ea42fb9dd5f14925cd605198f8b644/spring-boot-actuator-1.3.3.RELEASE.jar
 - file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-core/8.0.32/734ead0c803525cc9c7f283438101734ca9aac01/tomcat-embed-core-8.0.32.jar
@@ -89,6 +93,7 @@ dependencies:
 - file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/org.yaml/snakeyaml/1.16/d64fb662c9e42789149f5078a62a22edda786c6a/snakeyaml-1.16.jar
 - file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/org.codehaus.groovy/groovy-ant/2.4.6/77fc24973dd4205d3cd2d6707b39c8ea9e0aa624/groovy-ant-2.4.6.jar
 - file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.2.5.RELEASE/49cd2430884b77172aa81e3fc33ef668ea1dab30/spring-web-4.2.5.RELEASE.jar
+- file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar
 - file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.6.5/d50be1723a09befd903887099ff2014ea9020333/jackson-databind-2.6.5.jar
 - file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/org.grails/grails-web/3.1.5/bae647fa6409631a42f2f8910fc1cb9f192e00ab/grails-web-3.1.5.jar
 - file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/org.grails/grails-plugin-controllers/3.1.5/6b80e281f481a4edf17e401d90ed0c2ff3a925c3/grails-plugin-controllers-3.1.5.jar
@@ -136,7 +141,6 @@ dependencies:
 - file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-util/9.2.15.v20160210/ccd245541cc63311bdcfe551525bd7d82ea5e92c/jetty-util-9.2.15.v20160210.jar
 - file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-io/9.2.15.v20160210/5a3af41803c12b0f3628ed8927a8cedb42972169/jetty-io-9.2.15.v20160210.jar
 - file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.websocket/websocket-common/9.2.15.v20160210/ee5616ec65d6c8f05fe16ee4dbb6723b2ebff470/websocket-common-9.2.15.v20160210.jar
-- file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar
 - file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/org.apache.ant/ant/1.9.4/6d473e8653d952045f550f4ef225a9591b79094a/ant-1.9.4.jar
 - file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/org.codehaus.groovy/groovy-groovydoc/2.4.6/8ff8fae45749021dd10d2cb3a5c5662a6c277881/groovy-groovydoc-2.4.6.jar
 - file:/C:/Users/AcMined/.gradle/caches/modules-2/files-2.1/org.apache.ant/ant-antlr/1.9.4/4cf30025981dc2344324a0ef0e40063c3ef08f0a/ant-antlr-1.9.4.jar
