@@ -6,13 +6,15 @@ import grails.plugin.springsecurity.annotation.Secured
 
 import static org.springframework.http.HttpStatus.*
 
+@Secured(["ROLE_USER"])
 @Transactional(readOnly = true)
 class DepartamentoController {
 
+    def springSecurityService
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
-        def Usuario = session.Usuario
+        def Usuario = springSecurityService.currentUser
         params.max = Math.min(max ?: 10, 100)
         respond Departamento.list(params), model:[departamentoCount: Departamento.count()]
     }

@@ -54,6 +54,7 @@ grails:
     spring:
         transactionManagement:
             proxies: false
+
 info:
     app:
         name: 'isc517p13'

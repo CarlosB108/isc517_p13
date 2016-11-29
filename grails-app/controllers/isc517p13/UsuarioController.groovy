@@ -9,23 +9,12 @@ import static org.springframework.http.HttpStatus.*
 class UsuarioController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    def springSecurityService
     def login = {
     }
     def logout() {
         session.Usuario = null
         redirect uri: "/"
-    }
-
-    //Para el login
-    def doLogin = {
-        def usuario = Usuario.findWhere(nombre:params['nombre'],
-                contrasena:params['contrasena'])
-        session.Usuario = usuario
-        reauthenticate
-        if (usuario)
-            redirect(controller:'departamento',action:'index')
-        else
-            redirect(controller:'index',action:'index')
     }
 
     def index(Integer max) {

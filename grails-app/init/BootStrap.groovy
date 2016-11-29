@@ -14,16 +14,18 @@ class BootStrap {
         def adminRole = Role.findByAuthority('ROLE_ADMIN');
 
         if( adminRole == null ){
-            new Role(
+            adminRole = new Role(
                     authority: 'ROLE_ADMIN')
+            def userRole = new Role(
+                    authority: 'ROLE_USER')
+
+            System.out.println( adminUser.getUsername( ) )
+            System.out.println( adminRole.getAuthority() )
+
+            UserRole.create adminUser, adminRole
+            UserRole.create adminUser, userRole
         }
 
-        // (!adminUser.authorities.contains( adminRole ) ) {
-            def ur = new UserRole( );
-            ur.user = adminUser
-            ur.role = adminRole
-
-            ur.save( )
      //   }
 
     }

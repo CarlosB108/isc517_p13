@@ -10,6 +10,7 @@ import static org.springframework.http.HttpStatus.*
 @Secured(["ROLE_ADMIN"])
 class ContactoController {
 
+    def springSecurityService
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
