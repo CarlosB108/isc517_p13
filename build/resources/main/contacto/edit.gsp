@@ -27,5 +27,10 @@
                 </fieldset>
             </g:form>
         </div>
+        <style>
+        #departamentos, [for~=departamentos]{
+            display:none;
+        }
+        </style>
     </body>
 </html>

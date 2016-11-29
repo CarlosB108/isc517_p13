@@ -86,9 +86,8 @@ class UsuarioController {
             UserRole.create( usuario, Role.findByAuthority( 'ROLE_ADMIN' ) )
         }
         else {
-            def adminRole = UserRole.get( usuario.id, Role.findByAuthority( 'ROLE_ADMIN' ).id )
-
-            if( adminRole != null ) adminRole.delete
+            def role = Role.findByAuthority( 'ROLE_ADMIN' )
+            if( UserRole.exists(usuario.id, role.id ) ) UserRole.remove usuario, role
         }
 
         usuario.last_user = springSecurityService.currentUser.id

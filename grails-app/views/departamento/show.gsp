@@ -14,7 +14,6 @@
                 <th>Nombre</th>
                 <th>&Uacute;ltima actualizaci&oacute;n</th>
                 <th>Creado</th>
-                <th>N&uacute;mero de contactos</th>
             </tr>
             </thead>
             <tbody>
@@ -22,7 +21,6 @@
                 <td>${this.departamento.titulo}</td>
                 <td>${this.departamento.lastUpdated}</td>
                 <td>${this.departamento.dateCreated}</td>
-                <td>${this.departamento.contactos.count}</td>
             </tr>
             </tbody>
         </table>
@@ -58,12 +56,13 @@
             </table>
         </div>
     </div>
-
-        <g:form resource="${this.departamento}" method="DELETE">
+        <secutiry:authorize ifAllGranted="ADMIN">
+        <g:form resource="${this.departamento}" method="POST">
             <fieldset class="buttons">
                 <g:link class="edit btn btn-primary" action="edit" resource="${this.departamento}"><g:message code="default.button.editar.label" default="Editar" /></g:link>
             </fieldset>
         </g:form>
+        </secutiry:authorize>
     </g:if>
     </body>
 </html>
