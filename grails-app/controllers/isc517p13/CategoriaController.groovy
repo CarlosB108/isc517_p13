@@ -39,6 +39,7 @@ class CategoriaController {
             return
         }
 
+        categoria.last_user = springSecurityService.currentUser.id
         categoria.save flush:true
 
         request.withFormat {
@@ -68,6 +69,7 @@ class CategoriaController {
             return
         }
 
+        categoria.last_user = springSecurityService.currentUser.id
         categoria.save flush:true
 
         request.withFormat {

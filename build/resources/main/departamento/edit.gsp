@@ -19,7 +19,7 @@
                 </div>
                 <div class="form-group">
                     <label for="titulo">Contactos</label>
-                    <select id="contacts_list" name="contactos" class="form-control" multiple>
+                    <select id="contacts_list" name="contactos[]" class="form-control" multiple>
                     <g:each in="${this.departamento.contactos}" var="contacto">
                         <option value="${contacto.id}" selected>${contacto.nombre} - ${contacto.email}</option>
                     </g:each>

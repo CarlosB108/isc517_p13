@@ -6,6 +6,7 @@
         <title><g:message code="default.show.label" args="[entityName]" /></title>
     </head>
     <body>
+    <g:if test="${ uactual.isAdmin() || uactual.departamento.id == this.departamento.id }">
     <div class="panel">
         <table class="table table-stripped">
             <thead>
@@ -63,5 +64,6 @@
                 <g:link class="edit btn btn-primary" action="edit" resource="${this.departamento}"><g:message code="default.button.editar.label" default="Editar" /></g:link>
             </fieldset>
         </g:form>
+    </g:if>
     </body>
 </html>

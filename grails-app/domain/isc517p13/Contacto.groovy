@@ -15,12 +15,12 @@ class Contacto {
     int last_user
 
     static belongsTo = [categoria: Categoria]
-    static hasMany = [deparmentos: Departamento]
+    static hasMany = [departamentos: Departamento]
 
 
     static constraints = {
         last_user( nullable: true )
-        nombre (blank: false)
+        nombre (blank: false, minSize: 2)
         apellido (blank: false)
         email (email:true, unique: true)
         telefono (minSize: 10, maxSize: 14, unique: true)

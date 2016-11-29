@@ -54,4 +54,8 @@ class Usuario implements Serializable {
         password column: '`password`'
     }
 
+    def isAdmin( ){
+        return UserRole.exists( this.id, Role.findByAuthority( "ROLE_ADMIN" ).id )
+    }
+
 }

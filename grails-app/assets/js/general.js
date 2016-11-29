@@ -25,11 +25,14 @@ $( document ).ready(function( ) {
                 };
             },
             processResults: function (data) {
-                // parse the results into the format expected by Select2.
-                // since we are using custom formatting functions we do not need to
-                // alter the remote JSON data
+                console.log(data);
                 return {
-                    results: data
+                    results: $.map(data, function (item) {
+                        return {
+                            text: item.nombre + ' - ' + item.email,
+                            id: item.id
+                        }
+                    })
                 };
             },
             cache: true

@@ -14,13 +14,16 @@ class DepartamentoController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
-        def Usuario = springSecurityService.currentUser
+        def uactual = springSecurityService.currentUser
         params.max = Math.min(max ?: 10, 100)
-        respond Departamento.list(params), model:[departamentoCount: Departamento.count()]
+        respond Departamento.list(params), model:[departamentoCount: Departamento.count(), uactual:uactual]
     }
 
     def show(Departamento departamento) {
-        respond departamento
+
+        def uactual = springSecurityService.currentUser
+        respond departamento, model:[ uactual:uactual]
+
     }
 
     @Secured(["ROLE_ADMIN"])
@@ -43,7 +46,7 @@ class DepartamentoController {
             return
         }
 
-        departamento.last_user = session.Usuario.id
+        departamento.last_user = springSecurityService.currentUser.id
         departamento.save flush:true
 
         request.withFormat {
@@ -78,14 +81,20 @@ class DepartamentoController {
             return
         }
 
-        departmento.last_user = session.Usuario.id
-        departmento.contactos = [ ]
+        departamento.last_user = springSecurityService.currentUser.id
 
-        def contactos = params.contactos;
+        departamento.contactos.collect().each {
+            departamento.removeFromContactos( it )
+        }
+
+        def contactos = params.list( 'contactos[]' );
+
         if( contactos == null ) contactos = [ ]
 
-        for ( Integer id : contactos ){
-            departmento.contactos.add( Contacto.findById( id ) );
+        for ( String id : contactos ){
+            System.out.println( id )
+            System.out.println( Contacto.findById( id ) );
+            departamento.addToContactos ( Contacto.findById( id ) );
         }
 
         departamento.save flush:true
@@ -127,5 +136,26 @@ class DepartamentoController {
             }
             '*'{ render status: NOT_FOUND }
         }
+    }
+
+    def charts( ){
+        List columna_con = [['string', 'Departamento'], ['number', 'Cantidad de Contactos']]
+        List data_con = []
+        def departamentos = Departamento.findAll( )
+
+        for( Departamento d in departamentos ){
+            data_con << [ d.titulo, d.contactos.size( ) ]
+        }
+
+
+        def categorias = Categoria.findAll( )
+        List columna_cat = [['string', 'Categoria'], ['number', 'Cantidad de Contactos']]
+        List data_cat = []
+
+        for( Categoria c in categorias ){
+            data_cat << [ c.titulo, c.contactos.size() ]
+        }
+
+        render(view: "charts", model: ["col_con" : columna_con, "data_con" : data_con, "data_cat": data_cat, 'col_cat': columna_cat ] )
     }
 }

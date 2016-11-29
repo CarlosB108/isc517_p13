@@ -5,6 +5,7 @@ class Categoria {
     Date dateCreated
     Date lastUpdated
     int last_user
+    static hasMany = [contactos: Contacto]
 
     static constraints = {
         last_user( nullable: true )

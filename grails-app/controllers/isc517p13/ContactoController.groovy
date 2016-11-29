@@ -29,7 +29,7 @@ class ContactoController {
     }
 
     def search( String q ){
-        def lista = Contacto.findByEmailOrNombre( q, q )
+        def lista = Contacto.findByEmailLikeOrNombreLike( q, q ).findAll()
         if ( lista == null ) lista = []
         render lista as JSON
     }
@@ -56,6 +56,7 @@ class ContactoController {
             return
         }
 
+        contacto.last_user = springSecurityService.currentUser.id
         contacto.save flush:true
 
         request.withFormat {
@@ -85,7 +86,7 @@ class ContactoController {
             return
         }
 
-        contacto.last_user = Session.Usuario.id
+        contacto.last_user = springSecurityService.currentUser.id
         contacto.save flush:true
 
         request.withFormat {

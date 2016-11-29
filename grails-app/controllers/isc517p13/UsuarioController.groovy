@@ -5,6 +5,7 @@ import grails.transaction.Transactional
 
 import static org.springframework.http.HttpStatus.*
 
+@Secured(["ROLE_ADMIN"])
 @Transactional(readOnly = true)
 class UsuarioController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
@@ -45,8 +46,12 @@ class UsuarioController {
             return
         }
 
-        //usuario.last_user = session.Usuario.id
+        usuario.last_user = springSecurityService.currentUser.id
         usuario.save flush:true
+
+        UserRole.create usuario, Role.findByAuthority( 'ROLE_USER' )
+
+        flush:true
 
         request.withFormat {
             form multipartForm {
@@ -77,7 +82,16 @@ class UsuarioController {
             return
         }
 
-        usuario.last_user = session.Usuario.id
+        if( params.is_admin ){
+            UserRole.create( usuario, Role.findByAuthority( 'ROLE_ADMIN' ) )
+        }
+        else {
+            def adminRole = UserRole.get( usuario.id, Role.findByAuthority( 'ROLE_ADMIN' ).id )
+
+            if( adminRole != null ) adminRole.delete
+        }
+
+        usuario.last_user = springSecurityService.currentUser.id
         usuario.save flush:true
 
         request.withFormat {

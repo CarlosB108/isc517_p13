@@ -15,7 +15,7 @@
                     </tr>
                     </thead>
                     <g:each in="${departamentoList}" var="department">
-                        <g:if test="${ Usuario.isAdmin || Usuario.departmento == department }">
+                        <g:if test="${ uactual.isAdmin() || uactual.departamento.id == department.id }">
                         <tr>
                             <th><a href="/departamento/show/${department.id}">${department.titulo}</a></th>
                         </tr>

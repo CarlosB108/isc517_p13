@@ -29,3 +29,5 @@ grails.plugin.springsecurity.securityConfigType = "Annotation"
 //Para permitir el acceso sin la necesidad de reglas.
 grails.plugin.springsecurity.rejectIfNoRule = false
 grails.plugin.springsecurity.fii.rejectPublicInvocations = false
+
+grails.plugin.springsecurity.logout.postOnly = false

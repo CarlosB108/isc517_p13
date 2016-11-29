@@ -26,7 +26,25 @@ class BootStrap {
             UserRole.create adminUser, userRole
         }
 
-     //   }
+
+        //SAMPLE DATA
+        def d1 = new Departamento( )
+        d1.titulo = "Tesorería"
+        d1.save()
+
+        def d2 = new Departamento( )
+        d2.titulo = "Recursos Humanos"
+        d2.save()
+
+        def c1 = new Categoria()
+        c1.titulo = "Cat 1"
+        c1.save()
+
+        def c2 = new Categoria()
+        c2.titulo = "Cat 2"
+        c2.save()
+
+        //   }
 
     }
     def destroy = {

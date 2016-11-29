@@ -87,6 +87,7 @@ desired effect
     <aside class="main-sidebar">
 
         <!-- sidebar: style can be found in sidebar.less -->
+        <sec:ifLoggedIn>
         <section class="sidebar">
             <!-- Sidebar Menu -->
             <ul class="sidebar-menu">
@@ -100,6 +101,7 @@ desired effect
                     <ul class="treeview-menu">
                         <li><a href="/departamento">Listar</a></li>
                         <li><a href="/departamento/create">Crear</a></li>
+                        <li><a href="/departamento/charts">Gr&aacute;ficos</a></li>
                     </ul>
                 </li>
                 <!-- SOLO ADMINS -->
@@ -136,9 +138,13 @@ desired effect
                         <li><a href="/usuario/create">Crear</a></li>
                     </ul>
                 </li>
+                <li class="treeview">
+                    <a href="/logout">Salir</a>
+                </li>
             </ul>
             <!-- /.sidebar-menu -->
         </section>
+        </sec:ifLoggedIn>
         <!-- /.sidebar -->
     </aside>
 
