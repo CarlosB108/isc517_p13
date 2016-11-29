@@ -22,6 +22,12 @@
                 <fieldset class="form">
                     <f:all bean="usuario"/>
                 </fieldset>
+                <g:if test="${this.usuario.isAdmin()}">
+                <label> Admin: <input type="checkbox" name="is_admin" checked /></label>
+                </g:if>
+                <g:else>
+                <label> Admin: <input type="checkbox" name="is_admin" /></label>
+                </g:else>
                 <fieldset class="buttons">
                     <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
                 </fieldset>
