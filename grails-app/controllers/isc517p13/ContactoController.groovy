@@ -29,7 +29,7 @@ class ContactoController {
     }
 
     def search( String q ){
-        def lista = Contacto.findByEmailLikeOrNombreLike( q, q ).findAll()
+        def lista = Contacto.findAllByEmailLikeOrNombreLike( q, q )
         if ( lista == null ) lista = []
         render lista as JSON
     }
